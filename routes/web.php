@@ -34,3 +34,11 @@ Route::get('admin/create', function () {
 Route::get('admin/edit/{id}', function () {
     return view('admin.edit');
 })->name('admin.edit');
+
+Route::post('admin/create', function () {
+    return 'It works!!';
+})->name('admin.create');
+
+Route::post('admin/edit', function () {
+    return 'It works!!';
+})->name('admin.update');
