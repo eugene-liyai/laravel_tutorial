@@ -3,11 +3,12 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            <p class="quote">Blog post example</p>
+            <p class="quote">{{ $post['title'] }}</p>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
+            {{ $post['content'] }}
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elit libero, tincidunt ac lorem ac, condimentum varius augue. Integer accumsan pulvinar risus et congue. Nulla maximus libero nunc, at feugiat massa rutrum quis. Etiam eu euismod eros. Nullam mauris elit, condimentum sit amet felis sed, ultrices mattis leo. Etiam vel lacus vestibulum urna convallis dapibus at id sem. Nam vitae odio feugiat, porttitor odio convallis, facilisis leo. Fusce interdum congue purus sit amet elementum. Vivamus ipsum mi, varius vitae ante ut, eleifend consequat elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi ut mauris pharetra, auctor nibh ut, efficitur velit.
 
                 Maecenas urna turpis, viverra et rutrum vel, cursus sit amet mi. Donec efficitur, turpis mollis fringilla ullamcorper, elit augue pellentesque urna, auctor viverra massa felis semper nisi. Ut a feugiat libero. Maecenas dapibus tellus malesuada felis dignissim, a molestie purus rutrum. Pellentesque nisl velit, ullamcorper vitae mi vitae, mollis congue lacus. In vel aliquet dolor. Cras lobortis feugiat neque nec congue. Donec turpis mi, vestibulum at nulla et, tristique tempus turpis. Maecenas eget dui vel dolor laoreet fringilla. Integer dapibus nisi vel dui molestie, nec semper enim fermentum. Curabitur ornare euismod justo, sed volutpat libero interdum sed. Aliquam ut nulla vulputate, ultricies magna eu, pharetra sem.
