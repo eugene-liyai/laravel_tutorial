@@ -92,8 +92,10 @@ Route::group(['prefix' => 'admin'], function(){
         return view('admin.edit', ['post' => $post]);
     })->name('admin.edit');
 
-    Route::post('create', function (Request $request) {
-        return 'It works!!';
+    Route::post('create', function (\Illuminate\Http\Request $request) {
+        return redirect()
+            -> route('admin.index')
+            -> with('info', 'post create, new title: '. $request -> input('title'));
     })->name('admin.create');
 
     Route::post('edit', function (\Illuminate\Http\Request $request) {
