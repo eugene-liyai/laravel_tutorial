@@ -15,7 +15,19 @@ Route::get('/', function () {
     return view('blog.index');
 })->name('blog.index');
 
-Route::get('post/{id}', function () {
+Route::get('post/{id}', function ($id) {
+    // dumpy data
+    if ($id == 1) {
+        $post = [
+            'title' => 'Learn new stuff',
+            'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elit libero, tincidunt ac lorem ac, condimentum varius augue. Integer accumsan pulvinar risus et congue. Nulla maximus libero nunc, at feugiat massa rutrum quis. Etiam eu euismod eros. Nullam mauris elit'
+        ];
+    } else {
+        $post = [
+            'title' => 'Learn more stuff',
+            'content' => 'Condimentum varius augue. Integer accumsan pulvinar risus et congue. Nulla maximus libero nunc, at feugiat massa rutrum quis. Etiam eu euismod eros. Nullam mauris elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elit libero, tincidunt ac lorem ac, '
+        ];
+    }
     return view('blog.post');
 })->name('blog.post');
 
@@ -33,7 +45,18 @@ Route::group(['prefix' => 'admin'], function(){
         return view('admin.create');
     })->name('admin.create');
 
-    Route::get('edit/{id}', function () {
+    Route::get('edit/{id}', function ($id) {
+        if ($id == 1) {
+            $post = [
+                'title' => 'Edit new stuff',
+                'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elit libero, tincidunt ac lorem ac, condimentum varius augue. Integer accumsan pulvinar risus et congue. Nulla maximus libero nunc, at feugiat massa rutrum quis. Etiam eu euismod eros. Nullam mauris elit'
+            ];
+        } else {
+            $post = [
+                'title' => 'Edit more stuff',
+                'content' => 'Condimentum varius augue. Integer accumsan pulvinar risus et congue. Nulla maximus libero nunc, at feugiat massa rutrum quis. Etiam eu euismod eros. Nullam mauris elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elit libero, tincidunt ac lorem ac, '
+            ];
+        }
         return view('admin.edit');
     })->name('admin.edit');
 
