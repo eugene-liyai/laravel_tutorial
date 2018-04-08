@@ -92,11 +92,11 @@ Route::group(['prefix' => 'admin'], function(){
         return view('admin.edit', ['post' => $post]);
     })->name('admin.edit');
 
-    Route::post('create', function () {
+    Route::post('create', function (Request $request) {
         return 'It works!!';
     })->name('admin.create');
 
-    Route::post('edit', function () {
+    Route::post('edit', function (Request $request) {
         return 'It works!!';
     })->name('admin.update');
 });
