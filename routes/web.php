@@ -92,13 +92,29 @@ Route::group(['prefix' => 'admin'], function(){
         return view('admin.edit', ['post' => $post]);
     })->name('admin.edit');
 
-    Route::post('create', function (\Illuminate\Http\Request $request) {
+    Route::post('create', function (\Illuminate\Http\Request $request,
+                                    \Illuminate\Validation\Factory $validator) {
+        $validation = $validator -> make($request->all(), [
+            'title' => 'required|min:6',
+            'content' => 'required|min:10',
+        ]);
+        if($validation->fails()) {
+            return redirect()->back()->withErrors($validation);
+        }
         return redirect()
             -> route('admin.index')
             -> with('info', 'post create, new title: '. $request -> input('title'));
     })->name('admin.create');
 
-    Route::post('edit', function (\Illuminate\Http\Request $request) {
+    Route::post('edit', function (\Illuminate\Http\Request $request,
+                                  \Illuminate\Validation\Factory $validator) {
+        $validation = $validator -> make($request->all(), [
+            'title' => 'required|min:6',
+            'content' => 'required|min:10',
+        ]);
+        if($validation->fails()) {
+            return redirect()->back()->withErrors($validation);
+        }
         return redirect()
             -> route('admin.index')
             -> with('info', 'post edited, new title: '. $request -> input('title'));
