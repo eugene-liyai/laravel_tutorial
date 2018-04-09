@@ -11,7 +11,10 @@
 |
 */
 
-Route::get('/', 'PostController@getIndex')->name('blog.index');
+Route::get('/', [
+    'uses' => 'PostController@getIndex',
+    'as' => 'blog.index'
+]);
 
 Route::get('post/{id}', function ($id) {
     // dumpy data
