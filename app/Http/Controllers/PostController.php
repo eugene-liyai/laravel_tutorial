@@ -37,6 +37,10 @@ class PostController extends Controller
     }
 
     public function postAdminCreate(Store $session, Request $request) {
+        $this -> validate($request, [
+            'title' => 'required|min:6',
+            'content' => 'required|min:10',
+        ]);
         $post = new Post();
         $post -> addPost($session, $request -> input('title'), $request -> input('content'));
         return redirect() -> route('admin.index')
@@ -44,6 +48,10 @@ class PostController extends Controller
     }
 
     public function postAdminUpdate(Store $session, Request $request) {
+        $this -> validate($request, [
+            'title' => 'required|min:6',
+            'content' => 'required|min:10',
+        ]);
         $post = new Post();
         $post -> editPost($session,
             $request -> input('id'),
