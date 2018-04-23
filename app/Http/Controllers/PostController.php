@@ -32,7 +32,7 @@ class PostController extends Controller
 
     public function getAdminEdit(Store $session, $id) {
         $post = new Post();
-        $post = $post-> get($session, $id);
+        $post = $post-> getPost($session, $id);
         return view('admin.edit', ['post' => $post, 'postId' => $id]);
     }
 
