@@ -3,23 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Session\Store;
 use App\post;
 
 class PostController extends Controller
 {
     public function getIndex() {
-        $posts = Post::all();
+        $posts = Post::orderBy('created_at', 'desc')->get();
         return view('blog.index', ['posts' => $posts]);
     }
 
     public function getAdminIndex() {
-        $posts = Post::all();
+        $posts = Post::orderBy('title', 'asc')->get();
         return view('admin.index', ['posts' => $posts]);
     }
 
     public function getPost($id) {
-        $post = Post::find($id);
+        $post = Post::where('id', $id)->first();
         return view('blog.post', ['post' => $post]);
     }
 
@@ -60,7 +59,9 @@ class PostController extends Controller
             -> with('info', 'Post edited, new Title is: '. $request -> input('title'));
     }
 
-    public function getAdminDelete(Request $request){
-
+    public function getAdminDelete($id){
+        $post = Post::find($id);
+        $post->delete();
+        return redirect() -> route('admin.index')->with('info', 'Post Deleted!');
     }
 }
