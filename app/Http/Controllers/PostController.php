@@ -19,9 +19,8 @@ class PostController extends Controller
     }
 
     public function getPost(Store $session, $id) {
-        $post = new Post();
-        $post = $post -> getPosts($session, $id);
-        return view('blog.post', ['posts' => $post]);
+        $post = Post::find($id);
+        return view('blog.post', ['post' => $post]);
     }
 
     public function getAdminCreate() {
@@ -29,8 +28,7 @@ class PostController extends Controller
     }
 
     public function getAdminEdit(Store $session, $id) {
-        $post = new Post();
-        $post = $post-> getPost($session, $id);
+        $post = Post::find($id);
         return view('admin.edit', ['post' => $post, 'postId' => $id]);
     }
 
