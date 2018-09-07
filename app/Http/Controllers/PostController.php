@@ -14,8 +14,7 @@ class PostController extends Controller
     }
 
     public function getAdminIndex(Store $session) {
-        $post = new Post();
-        $posts = $post -> getPosts($session);
+        $posts = Post::all();
         return view('admin.index', ['posts' => $posts]);
     }
 
