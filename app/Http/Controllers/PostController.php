@@ -9,8 +9,7 @@ use App\post;
 class PostController extends Controller
 {
     public function getIndex(Store $session) {
-        $post = new post();
-        $posts = $post->getPosts($session);
+        $posts = Post::all();
         return view('blog.index', ['posts' => $posts]);
     }
 
