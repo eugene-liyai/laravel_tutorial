@@ -47,7 +47,7 @@ class PostController extends Controller
             -> with('info', 'Post created, Title is: '. $request -> input('title'));
     }
 
-    public function postAdminUpdate(Store $session, Request $request) {
+    public function postAdminUpdate(Request $request) {
         $this -> validate($request, [
             'title' => 'required|min:6',
             'content' => 'required|min:10',
@@ -58,5 +58,9 @@ class PostController extends Controller
         $post->save();
         return redirect() -> route('admin.index')
             -> with('info', 'Post edited, new Title is: '. $request -> input('title'));
+    }
+
+    public function getAdminDelete(Request $request){
+
     }
 }
