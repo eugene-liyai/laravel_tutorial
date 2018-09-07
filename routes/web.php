@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', [
+Route::get('', [
     'uses' => 'PostController@getIndex',
     'as' => 'blog.index'
 ]);
@@ -30,7 +30,7 @@ Route::group(['prefix' => 'admin'], function(){
     Route::get('', [
         'uses' => 'PostController@getAdminIndex',
         'as' => 'admin.index'
-    ])->name('admin.index');
+    ]);
 
     Route::get('create', [
         'uses' => 'PostController@getAdminCreate',
