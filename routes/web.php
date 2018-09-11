@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', [
+Route::get('', [
     'uses' => 'PostController@getIndex',
     'as' => 'blog.index'
 ]);
@@ -19,6 +19,11 @@ Route::get('/', [
 Route::get('post/{id}', [
     'uses' => 'PostController@getPost',
     'as' => 'blog.post'
+]);
+
+Route::get('post/{id}/like', [
+    'uses' => 'PostController@getLikePost',
+    'as' => 'blog.post.like'
 ]);
 
 Route::get('about', function () {
@@ -30,7 +35,7 @@ Route::group(['prefix' => 'admin'], function(){
     Route::get('', [
         'uses' => 'PostController@getAdminIndex',
         'as' => 'admin.index'
-    ])->name('admin.index');
+    ]);
 
     Route::get('create', [
         'uses' => 'PostController@getAdminCreate',
@@ -40,6 +45,11 @@ Route::group(['prefix' => 'admin'], function(){
     Route::get('edit/{id}', [
         'uses' => 'PostController@getAdminEdit',
         'as' => 'admin.edit'
+    ]);
+
+    Route::get('delete/{id}', [
+        'uses' => 'PostController@getAdminDelete',
+        'as' => 'admin.delete'
     ]);
 
     Route::post('create', [

@@ -7,3 +7,12 @@
 .post-title {
     color: #F4645F;
 }
+
+.pagination>.active>span {
+    background-color: #F4645F;
+    border-color: #F4645F
+}
+
+.pagination>li>a {
+    color: #F4645F;
+}
